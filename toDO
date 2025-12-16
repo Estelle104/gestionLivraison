@@ -1,0 +1,99 @@
+les tables
+    CREATE TABLE livraison_Societes(
+        id INT AUTO_INCREMENT PRIMARY KEY ,
+        nomSociete VARCHAR(25),
+        addresseSociete VARCHAR(20)
+    );
+
+    CREATE TABLE livraison_Vehicules(
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        nomVehicule VARCHAR(50),
+        idSociete INT,
+        idTypeVehicule INT 
+    );
+
+    CREATE TABLE livraison_Chauffeur (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        nomChauffeur VARCHAR(75),
+        idVehicule INT,
+        idSociete INT
+    );
+
+-- mvt
+    CREATE TABLE livraison_Livraison(
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        idColis INT,
+        idEntrepot INT,
+        destination VARCHAR(30),
+        idVehicule INT,
+        idEtat INT,
+        idChauffeur INT,
+        dateLivraison DATETIME,
+        coutVoiture DOUBLE,
+        -- beneficeSociete DOUBLE, -- attribut fotsiny -> zany hoe setter-na
+        salaireChauffeur DOUBLE
+    );
+
+    CREATE TABLE livraison_TypeVehicules(
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        poidsMax DOUBLE
+    );
+
+    CREATE TABLE livraison_Colis(
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        descriptionColi VARCHAR(50),
+        poidsColis DOUBLE
+    );
+
+    CREATE TABLE livraison_Entrepot(
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        adresseEntrepot VARCHAR(20),
+        nomEntrepot VARCHAR(50)
+    );
+
+    CREATE TABLE livraison_EtatLivraison( -- en attente, livre, annule
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        etatlivraison VARCHAR(20)
+    );
+-- pour le moment
+    CREATE TABLE livraison_ZoneLivraison(
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        zoneLivraison VARCHAR(20)
+    );
+
+    CREATE TABLE livraison_HistoriqueBenefice(
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        dateDonnee DATETIME,
+        montant DOUBLE
+    );
+
+    CREATE TABLE livraison_User(
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        nomUser VARCHAR(20),
+        loginUser VARCHAR(20),
+        mdp VARCHAR(10)
+    );
+
+-- to do
+donnee de test = IA 
+
+1. page : login.php (responsable societe)
+base 
+    utiliser livraison_User
+fonction
+    checkLogin( loginUser, mdp)
+affichage
+    formulaire : 2 inputs + submit
+traitement 
+    ok ? accueil : login+erreur
+
+2. page : accueil.php (bienvenue)
+base 
+
+fonction
+
+affichage
+    navigation + bienvenue
+traitement
+    selon navigation (href)
+
