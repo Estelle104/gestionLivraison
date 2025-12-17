@@ -42,7 +42,8 @@ les tables
     CREATE TABLE livraison_Colis(
         id INT AUTO_INCREMENT PRIMARY KEY,
         descriptionColi VARCHAR(50),
-        poidsColis DOUBLE
+        poidsColis DOUBLE,
+        prixUnitaire DOUBLE
     );
 
     CREATE TABLE livraison_Entrepot(
